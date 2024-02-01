@@ -2,9 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import Table from "@/components/Table/Table";
 import ListCheck from "@/components/icons/ListCheck";
 import Filter from "@/components/icons/Filter";
-import { useStore } from "@nanostores/react";
 import columns from "@/data/columns";
-import { $isCartOpen, upateState } from "@/data/tableUser";
 
 import {
   DropdownMenu,
