@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Link No Found">
+  <main class="overflow-hidden">
+    <div class="max-w-[1621px] m-auto px-10 py-8">
+      <Header />
+    </div>
+    <div
+      class="flex flex-col text-center gap-[30px] h-full justify-center items-center"
+    >
+      <h1>404</h1>
+      <span class="text-white text-5xl font-semibold">Page Not Found</span>
+      <p class="text-[#C9CED6]">
+        ¡Oops! Enlace extraviado Este camino no lleva a ningún <br /> destino conocido.
+        Vuelve al inicio o crea una nueva ruta <br /> haciendo clic en el botón de
+        inicio. <br /> ¡Buena suerte explorador!
+      </p>
+      <div class="h-40">
+        <button
+          class="h-16 px-12 bg-[#144EE3] rounded-lg font-semibold text-white"
+          >GO HOME</button
+        >
+      </div>
+    </div>
+  </main>
+</Layout>
+<style>
+  h1 {
+    text-align: center;
+    font-size: 180px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    background: linear-gradient(
+      90deg,
+      rgba(235, 86, 142, 0.9) 48.68%,
+      rgba(20, 78, 227, 0.9) 74.82%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  button {
+    box-shadow: 10px 9px 22px 0px rgba(20, 78, 227, 0.38);
+  }
+</style>

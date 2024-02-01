@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Search from "@/components/Search";
+import { getSession } from "auth-astro/server";
+import {TableUser} from "@/components/Table/TableUser";
+const session = await getSession(Astro.request);
+---
+
+  <Layout title="Dashboard">
+    <main class="overflow-hidden">
+      <div class="max-w-[1621px] m-auto px-10 py-8">
+        <Header>
+          <div class="w-[70%] h-[76px]">
+            <Search client:load session={session} />
+          </div>
+        </Header>
+      </div>
+      <TableUser client:load session={session} />
+    </main>
+  </Layout>

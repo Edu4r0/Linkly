@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import UserAccount from "../components/Login.jsx";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
+---
+
+<Layout title="Login Account">
+  <UserAccount client:load />
+  <div>
+    {session?.user.name}
+    <img src={session?.user.image} alt="" />
+  </div>
+</Layout>
