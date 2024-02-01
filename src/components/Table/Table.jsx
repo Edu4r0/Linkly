@@ -5,7 +5,7 @@ import Qr from "./Qr.jsx";
 
 import ShortLink from "./ShortLink.jsx";
 
-function Table({ data, setData, classHead = false }) {
+function Table({ data, setData=null, classHead = false }) {
   return (
     <div className="overflow-x-auto">
       <table className="2xl:w-full xl:w-full ">
