@@ -39,7 +39,6 @@ function Search({ session }) {
         return;
       }
       setSetshorturl(responseData?.short_url);
-      isCartOpen.set(false);
     } catch (error) {
       console.error("Error during fetch:", error);
     } finally {
