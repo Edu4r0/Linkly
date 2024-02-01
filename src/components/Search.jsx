@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import copyclipboard from "@/utils/copy";
+import { Toaster } from "@/components/ui/toaster";
+import { useToast } from "@/components/ui/use-toast";
+import copyToClipboard from "@/utils/copy";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,6 +18,7 @@ function Search({ session }) {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, seterror] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     setValue(setshorturl);
@@ -25,7 +28,7 @@ function Search({ session }) {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:4321/api/shortlink.json", {
+      const response = await fetch("api/shortlink.json", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,8 +62,7 @@ function Search({ session }) {
           <button
             onClick={(e) => {
               e.preventDefault();
-              const input = document.querySelector("#default-search");
-              value && copyclipboard(input);
+              value && copyToClipboard(`https://linkly-url.vercel.app/s/${setshorturl}`,toast);
             }}
             className="hover:bg-gray-600 px-1 py-2 w-full rounded-[48px]"
           >
@@ -138,6 +140,7 @@ function Search({ session }) {
           </AlertDialogContent>
         </AlertDialog>
       </div>
+      <Toaster />
     </form>
   );
 }

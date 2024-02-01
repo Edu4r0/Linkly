@@ -8,8 +8,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -22,11 +20,10 @@ export function TableUser({ session }) {
     async function setDataApi() {
       try {
         const response = await fetch(
-          `http://localhost:4321/api/user/${session?.user?.name}`
+          `api/user/${session?.user?.name}`
         );
         const result = await response.json();
         setData(result);
-        upateState(result);
         setLoading(false);
       } catch (error) {
         console.log(error);
