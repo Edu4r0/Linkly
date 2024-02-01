@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://Linkly.app">
+<a href="[https://Linkly.app](https://linkly-url.vercel.app/)">
 <img src="public/readme.png">
 </a>
 <p></p>
