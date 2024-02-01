@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import copyclipboard from "@/utils/copy";
-import { useStore } from "@nanostores/react";
-import { $isCartOpen,upateState } from "@/data/tableUser";
-
 import {
   AlertDialog,
   AlertDialogAction,
@@ -89,11 +86,7 @@ function Search({ session }) {
           className="absolute text-[#C9CED6] h-full w-[60%] left-16 top-0 bottom-2 outline-none bg-transparent"
           id="default-search"
           type="text"
-          onChange={(e) => {
-            setValue(e.target.value);
-            console.log('event')
-            upateState(e.target.value);
-          }}
+          onChange={(e)=> setValue(e.target.value)}
           value={value}
         />
         <button
