@@ -5,7 +5,7 @@ import Qr from "./Qr.jsx";
 import "@/App.css";
 import ShortLink from "./ShortLink.jsx";
 
-function Table({ data, setData = null, classHead = false, loading = null }) {
+function Table({ data, setData = null, classHead = false, loading = null, session=null }) {
   return (
     <div className="overflow-x-auto h-full">
       <table className="2xl:w-full xl:w-full ">
@@ -82,10 +82,10 @@ function Table({ data, setData = null, classHead = false, loading = null }) {
           ))}
         </tbody>
       </table>
-      {data.length > 0 && (
+      {!session && (
         <div
           id="shortlink"
-          class="flex justify-center items-end py-4  absolute bottom-0 w-full h-20 m-auto bg-gradient-to-b from-transparent from-10%  to-[#0b101b] backdrop-blur-[0.6px]"
+          className="flex justify-center items-end py-4  absolute bottom-0 w-full h-20 m-auto bg-gradient-to-b from-transparent from-10%  to-[#0b101b] backdrop-blur-[0.6px]"
         >
           <span>
             <a href="/dash" class="text-[#144EE3] text- underline">

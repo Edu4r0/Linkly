@@ -36,7 +36,7 @@ const session = await getSession(Astro.request);
       </div>
 
       <div class="relative -mt-5 m-auto max-w-[1421px] text-[#C9CED6]">
-        <Table classHead={true} data={data} client:load />
+        <Table classHead={true} data={data} client:load session={session} />
       </div>
     </div>
   </main>
