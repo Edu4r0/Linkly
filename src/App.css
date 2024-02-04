@@ -1,0 +1,17 @@
+#search {
+  box-shadow: 10px 9px 22px 0px rgba(20, 78, 227, 0.38);
+}
+@media (max-width: 525px) {
+  #shortlink {
+    display: none;
+  }
+  #hidden {
+    display: none;
+  }
+  #search {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+

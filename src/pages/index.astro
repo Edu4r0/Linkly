@@ -8,7 +8,7 @@ import Theme from "@/components/Theme";
 import Autopaste from "@/components/Autopaste.astro";
 import data from "@/data/tableHome";
 import { getSession } from "auth-astro/server";
-const session = await getSession(Astro.request)
+const session = await getSession(Astro.request);
 ---
 
 <Layout title="Linkly">
@@ -16,21 +16,22 @@ const session = await getSession(Astro.request)
     <div class="max-w-[1621px] m-auto px-10 py-8">
       <Header session={session} />
     </div>
-    <div class="flex flex-col gap-5 items-center mt-20">
-      <Title />
-    </div>
+    <Title />
     <div class="flex flex-col gap-5">
-      <div class="flex justify-center mt-4 w-[35%] m-auto items-center">
+      <div class="flex mt-4 m-auto items-center lg:w-[35%] md:w-[55%] my-2 sm:w-[80%] w-[90%]">
         <Search session={session} client:load />
       </div>
       <div class="flex flex-col gap-4 justify-center items-center">
         <Autopaste />
-        <p class="text-[#C9CED6]">
-          You can create <span class="text-[#EB568E]"> 05</span> more links. Register
-          Now to enjoy Unlimited usage
+        <p class="text-[#C9CED6] text-balance text-center">
+          You can create <span class="text-[#EB568E]"> 05</span> more links. <a
+            href=""
+            class="underline underline-offset-2 text-white font-medium"
+            >Register Now</a
+          > to enjoy Unlimited usage
         </p>
       </div>
-      <div class=" justify-end w-full px-16">
+      <div class="justify-end w-full px-16">
         <Theme />
       </div>
 
@@ -39,4 +40,5 @@ const session = await getSession(Astro.request)
       </div>
     </div>
   </main>
+ 
 </Layout>

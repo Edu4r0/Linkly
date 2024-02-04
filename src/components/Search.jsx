@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import copyToClipboard from "@/utils/copy";
+import "@/App.css";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,6 +13,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 function Search({ session }) {
   const [setshorturl, setSetshorturl] = useState("");
@@ -56,13 +58,20 @@ function Search({ session }) {
   }
 
   return (
-    <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
-      <div className="relative h-[62px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] w-full">
+    <form
+      className="w-full"
+      onSubmit={(e) => handleSubmit(e)}
+    >
+      <div className="relative lg:h-[62px] md:h-[60px] h-[60px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] w-full">
         <div className="absolute inset-y-0 start-2 flex items-center px-2 py-2">
           <button
             onClick={(e) => {
               e.preventDefault();
-              value && copyToClipboard(`https://linkly-url.vercel.app/s/${setshorturl}`,toast);
+              value &&
+                copyToClipboard(
+                  `https://linkly-url.vercel.app/s/${setshorturl}`,
+                  toast
+                );
             }}
             className="hover:bg-gray-600 px-1 py-2 w-full rounded-[48px]"
           >
@@ -84,16 +93,17 @@ function Search({ session }) {
           placeholder="Enter the link here"
           autoComplete="off"
           name="search"
-          className="absolute text-[#C9CED6] h-full w-[60%] left-16 top-0 bottom-2 outline-none bg-transparent"
+          className="absolute text-[#C9CED6] h-full w-full left-16 top-0 bottom-2 outline-none bg-transparent"
           id="default-search"
           type="text"
-          onChange={(e)=> setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
           value={value}
         />
         <button
+          id="search"
           disabled={loading}
           onClick={() => handleRedirect()}
-          className="absolute end-0 bottom-[5px] right-2 flex justify-center items-center text-white font-semibold bg-[#144EE3] hover:bg-[#144fe3a2]  rounded-[48px] w-[178px] h-[80%]"
+          className="absolute text-base end-0 bottom-[5px] right-2 flex justify-center items-center text-white font-semibold bg-[#144EE3] hover:bg-[#144fe3a2]  rounded-[48px] lg:w-[178px] h-[80%]"
           type="submit"
         >
           {loading ? (
@@ -118,7 +128,10 @@ function Search({ session }) {
               </svg>
             </div>
           ) : (
-            "Shorten Now!"
+            <div>
+              <ArrowRight id="submit" />
+              <span id="hidden">Shorten Now!</span>
+            </div>
           )}
         </button>
         <AlertDialog open={error ? true : false}>
@@ -144,5 +157,7 @@ function Search({ session }) {
     </form>
   );
 }
+
+<style></style>;
 
 export default Search;

@@ -1,29 +1,24 @@
 ---
-
-
 import { getSession } from "auth-astro/server";
 import Login from "@/components/Login.jsx";
-import User from "@/components/User.jsx"
+import User from "@/components/User.jsx";
 
 const session = await getSession(Astro.request);
 ---
-
 <header>
   <div class="flex justify-between items-center">
-    <span id="logo" class="text-[36px] font-bold">Linkly</span>
-    <slot/>
-    <div class="flex gap-5">
+    <span id="logo" class="text-[36px] font-extrabold">Linkly</span>
+    <slot />
+    <div class="flex gap-2 items-center">
       <div class="flex gap-5 w-auto text-[#C9CED6]">
         {
           session ? (
-            <User session={session} client:load/>
+            <User session={session} client:load />
           ) : (
-              <Login client:load/>
+            <Login client:load />
           )
         }
       </div>
-
-      
       <a class="hover:opacity-80" href="#">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +33,6 @@ const session = await getSession(Astro.request);
           ></path></svg
         >
       </a>
-      
       <a class="hover:opacity-80" href="#">
         <svg
           width="28"
@@ -62,9 +56,6 @@ const session = await getSession(Astro.request);
 </header>
 
 <style>
-  #button-login {
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-  }
   #button-register {
     box-shadow: 10px 9px 22px 0px rgba(20, 78, 227, 0.38);
   }

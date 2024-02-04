@@ -95,13 +95,8 @@ export function TableUser({ session }) {
         </div>
       </div>
       <div className="mt-[28px]">
-        {loading ? (
-          <div className="h-[40vh] flex justify-center items-center">
-            <div className="h-20 w-20 border-4 border-r-transparent border-[#144EE3] rounded-full animate-spin"></div>
-          </div>
-        ) : (
-          <Table data={sortedData} setData={setData} />
-        )}
+        
+          <Table data={sortedData} loading={loading} setData={setData} />
       </div>
     </section>
   );
